@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.look {
+    background: url(../images/background-4876988_1280.jpg) no-repeat center center / cover;
+    width: 100%;
+    padding: 60px 0 61px;
+
+    @include mq($md) {
+        background: url(../images/background-4876988_1280-sp.jpg) no-repeat center center / cover;
+        width: 100%;
+        padding: 40px 0;
+    }
+
+    &__sub-ttl {
+        color: $white;
+        margin-bottom: 24px;
+
+        @include mq($md) {
+            color: $white;
+            margin-bottom: 39px;
+        }
+    }
+}
+
+.btn__white {
+    @include button($blue, $white, 25px, $white);
+    padding: 13px;
+
+    @include mq($md) {
+        padding: 13px 0;
+    }
+
+    &:hover {
+        color: $white;
+        background-color: $blue;
+        opacity: 1;
+        border: 3px solid $white;
+    }
+}

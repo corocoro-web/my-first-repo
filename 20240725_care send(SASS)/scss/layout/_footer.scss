@@ -1,0 +1,31 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.footer {
+    position: relative;
+    top: 96px;
+    padding: 26px 0 18px;
+    text-align: center;
+
+    @include mq($md) {
+        padding: 24px 16px;
+        top: 65px;
+    }
+
+
+    &__logo {
+        margin-bottom: 31px;
+
+        &a {
+            display: inline-block;
+            height: 52px;
+        }
+    }
+
+    &__copy {
+        font-family: "Goldman", sans-serif;
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.0;
+    }
+}

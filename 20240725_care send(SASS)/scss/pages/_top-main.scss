@@ -1,0 +1,421 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.main {
+    position: relative;
+    padding: 84px 0;
+    background: linear-gradient(to right, rgba(0, 127, 198, 1), rgba(2, 209, 255, 1));
+
+    @include mq($md) {
+        padding: 40px 0 26px;
+    }
+
+    img {
+        position: absolute;
+        width: 360px;
+        height: 202px;
+        bottom: -83px;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+
+        @include mq($xl) {
+            top: 560px;
+        }
+
+        @include mq($md) {
+            top: 394px;
+        }
+    }
+
+    &__inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+
+        @include mq($xl) {
+            justify-content: center;
+        }
+
+        @include mq($md) {
+            max-width: 375px;
+            position: relative;
+            gap: 24px;
+        }
+    }
+
+    &__text {
+        width: 616px;
+        text-align: left;
+        color: $white;
+        margin-left: 24px;
+
+        @include mq($xl) {
+            text-align: center;
+            margin-bottom: 180px;
+        }
+
+        @include mq($md) {
+            width: 342px;
+            margin-right: 25px;
+        }
+    }
+
+    &__copy__top {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 11px;
+
+        @include mq($md) {
+            font-size: 0.875rem;
+            margin-bottom: 18px;
+        }
+    }
+
+    &__copy__center {
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 15px;
+
+        @include mq($md) {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__copy__bottom {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 37px;
+
+        @include mq($md) {
+            font-size: 0.875rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__appeal__lists {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin: 0 5px 27px 5px;
+
+        @include mq($xl) {
+            justify-content: center;
+            margin: 0 0 27px 0;
+        }
+
+        @include mq($md) {
+            gap: 6px;
+            margin-bottom: 22px;
+        }
+    }
+
+    &__appeal__list {
+        position: relative;
+        color: $blue;
+        background-color: $white;
+        text-align: center;
+        border-radius: 50%;
+        width: 164px;
+        height: 164px;
+        line-height: 1.95;
+        padding: 30px 0;
+
+        @include mq($md) {
+            width: 112px;
+            height: 112px;
+            font-size: 1.0rem;
+            padding: 20px 0;
+            line-height: 2.0;
+        }
+
+        /* 注意書き */
+        .note {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: $black;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &__appeal__list01 .note {
+        right: 11px;
+        top: 85px;
+
+        @include mq($md) {
+            right: 9px;
+            top: 57px;
+        }
+    }
+
+    &__appeal__list02 .note {
+        right: 11px;
+        top: 85px;
+
+        @include mq($md) {
+            right: 12px;
+            top: 57px;
+        }
+    }
+
+    &__appeal__list03 .note {
+        right: 25px;
+        top: 85px;
+
+        @include mq($md) {
+            right: 23px;
+            top: 57px;
+        }
+    }
+}
+
+/* 登録者のラベル */
+.register-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include mq($md) {
+        font-size: 1rem;
+    }
+}
+
+/* 登録者の数値 */
+.register-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $blue;
+
+    @include mq($md) {
+        font-size: 1.125rem;
+    }
+}
+
+/* 登録者の単位 */
+.register-unit {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 13px;
+
+    @include mq($md) {
+        font-size: 1rem;
+    }
+}
+
+/* 派遣のラベル */
+.dispatch-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include mq($md) {
+        font-size: 1rem;
+    }
+}
+
+/* 派遣の実績 */
+.dispatch-result {
+    font-size: 2rem;
+    margin-top: 10px;
+    font-weight: 700;
+    color: $blue;
+    margin-right: 14px;
+
+    @include mq($md) {
+        font-size: 1.125rem;
+    }
+}
+
+/* 雇用のラベル */
+.employment-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include mq($md) {
+        font-size: 1rem;
+    }
+}
+
+/* 雇用の数値 */
+.employment-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #007FC6;
+
+    @include mq($md) {
+        font-size: 1.125rem;
+        margin-right: 11px;
+    }
+}
+
+
+.importants {
+    @include mq($md) {
+        text-align: left;
+    }
+}
+
+.important {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    margin-bottom: 2px;
+}
+
+.form {
+    position: relative;
+    width: 400px;
+    background-color: $white;
+    border-radius: 5px;
+    text-align: left;
+    color: $black;
+
+    @include mq($md) {
+        width: 343px;
+    }
+
+    &__ttl {
+        width: 384px;
+        position: relative;
+        display: inline-block;
+        margin: 8px;
+        padding: 11px 0;
+        max-width: 100%;
+        color: $white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+        background: $blue;
+        border-radius: 5px;
+        margin-bottom: 20px;
+
+        @include mq($md) {
+            width: 327px;
+            padding: 14px 0;
+            font-size: 1rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 48%;
+            border: 8px solid transparent;
+            border-top: 12px solid $blue;
+        }
+    }
+
+    &__container {
+        padding: 0 16px 28px;
+
+        @include mq($md) {
+            padding: 0 8px 19px;
+        }
+    }
+
+    &__area {
+        display: flex;
+        gap: 18px;
+
+        @include mq($md) {
+            gap: 9px;
+        }
+    }
+
+    &__flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        display: inline-block;
+        position: relative;
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+
+        &::after {
+            content: "*";
+            position: absolute;
+            color: #F90000;
+        }
+    }
+
+    &__input__name {
+        width: 175px;
+        @include formBox;
+
+        @include mq($md) {
+            width: 159px;
+        }
+    }
+
+    &__input {
+        width: 368px;
+        @include formBox;
+
+        @include mq($md) {
+            width: 327px;
+        }
+
+        &__last {
+            margin-bottom: 22px;
+        }
+
+    }
+
+
+}
+
+.privacyPolicy {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 31px;
+
+    @include mq($md) {
+        font-size: 0.75rem;
+        margin-bottom: 40px;
+    }
+}
+
+.btn__blue {
+    @include button($white, $blue, 50px, $blue);
+    padding: 8px 0;
+
+    @include mq($md) {
+        width: 246px;
+        font-size: 1rem;
+        padding: 6px;
+    }
+
+    &:hover {
+        color: $blue;
+        background-color: $white;
+        opacity: 1;
+        border: 3px solid $blue;
+    }
+}
+
+.end-message,
+.false-message {
+    display: none;
+    text-align: center;
+    border-bottom: 2px solid #F90000;
+    margin: 0px 25px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    position: relative;
+    top: -30px;
+}
+
+
+
+

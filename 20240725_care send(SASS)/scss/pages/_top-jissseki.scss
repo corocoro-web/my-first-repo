@@ -1,0 +1,100 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.jisseki {
+    padding: 80px 0 46px;
+
+    @include mq($md) {
+        padding: 40px 0 32px;
+    }
+
+    &__ttl {
+        margin-bottom: 40px;
+
+        @include mq($md) {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__inner {
+        padding: 0 20px;
+
+        @include mq($md) {
+            padding: 0 20px;
+            overflow: hidden;
+        }
+    }
+
+    &__img {
+        display: flex;
+        gap: 84px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 64px;
+
+        @include mq($lg) {
+            gap: 30px;
+            margin-bottom: 40px
+        }
+
+        @include mq($md) {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 39px;
+            flex-direction: column;
+        }
+
+        img {
+            width: 428px;
+
+            @include mq($lg) {
+                margin-bottom: 0;
+            }
+
+            @include mq($md) {
+                width: 280px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    /*----------------スライダー-------------*/
+    &__images {
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 80px;
+        width: calc(200%);
+        animation: scroll 30s linear infinite;
+
+        img {
+            overflow: hidden;
+            width: 248px;
+            height: 99px;
+            display: block;
+
+            @include mq($md) {
+                width: 160px;
+                height: 64px;
+            }
+        }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/*-------------------------------------*/

@@ -1,0 +1,176 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+
+
+.faq {
+    padding: 96px 0 48px;
+    background-color: #F9F9F9;
+
+    @include mq($md) {
+        padding: 59px 0 56px;
+    }
+
+    &__inner {
+        padding: 0;
+
+        @include mq($md) {
+            padding: 0 16px;
+        }
+    }
+
+    &__ttl {
+        margin-bottom: 69px;
+
+        @include mq($md) {
+            margin-bottom: 48px;
+        }
+    }
+}
+
+
+/*==================================================
+アコーディオンのためのcss
+===================================*/
+
+/*アコーディオン全体*/
+details {
+    margin: 24px 0;
+}
+
+/*アコーディオンタイトル*/
+.faq__accordion-ttl {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 28px 0 28px 104px;
+    transition: all .5s ease;
+    @include accordion-style;
+
+    @include mq($md) {
+        font-size: 0.875rem;
+        padding: 0 25px 0 57px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+    }
+
+    &::-webkit-details-marker {
+        /* Safari-デフォルトの三角形を削除*/
+        display: none;
+    }
+
+    /*アイコン*/
+    /*----Qの背景-------*/
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url('../images/Q.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $blue;
+        top: 19px;
+        left: 38px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+
+        @include mq($md) {
+            top: 17px;
+            left: 10px;
+            width: 32px;
+            height: 32px;
+            background-size: 12px 12px;
+        }
+    }
+
+    &::after {
+        /*＋*/
+        position: absolute;
+        content: "＋";
+        font-size: 43px;
+        font-weight: 200;
+        top: 6px;
+        right: 18px;
+
+        @include mq($md) {
+            font-size: 22px;
+            font-weight: 500;
+            top: 24%;
+            right: 7px;
+        }
+    }
+
+
+    /*　closeというクラスがついたら形状変化　*/
+    &.close {
+        color: $white;
+        background-color: $blue;
+        border-radius: 10px 10px 0px 0px;
+
+        &::after {
+            /*ー*/
+            position: absolute;
+            content: "ー";
+            font-size: 46px;
+            font-weight: 200;
+            top: 2px;
+            right: 17px;
+
+            @include mq($md) {
+                font-size: 20px;
+                font-weight: 500;
+                top: 27%;
+                right: 8px;
+            }
+        }
+
+        /*----Qの背景---close----*/
+        &::before {
+            background-image: url('../images/Q-02.svg');
+            background-color: $white;
+        }
+    }
+}
+
+/*アコーディオンで現れるエリア*/
+.faq__accordion-box {
+    display: none;
+    /*はじめは非表示*/
+    padding: 24px 36px;
+    @include accordion-style;
+
+    @include mq($md) {
+        padding: 10px;
+    }
+}
+
+.faq__accordion-txt {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+
+    @include mq($md) {
+        font-size: 0.875rem;
+    }
+}
+
+.faq__accordion-list {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    margin: 24px 0;
+
+    /*list-style-type: decimal;*/
+    /*list-style-position: inside;*/
+    /* リストの数字を内側に表示 */
+    @include mq($md) {
+        font-size: 0.875rem;
+    }
+}
+
+
+/*----------------------------------------------*/

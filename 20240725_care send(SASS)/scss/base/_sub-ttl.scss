@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.sub-ttl {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.8;
+
+    @include mq($md) {
+        font-size: 1.5rem;
+    }
+}

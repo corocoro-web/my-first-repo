@@ -1,0 +1,409 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+.header {
+    height: 96px;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: $white;
+
+    @include mq($md) {
+        height: 64px;
+    }
+
+    &__logo {
+        padding: 22px 20px;
+
+        @include mq($md) {
+            padding: 16px;
+        }
+
+        img {
+            @include mq($md) {
+                width: 139px;
+            }
+        }
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    &__inner {
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__nav-lists {
+        display: flex;
+        gap: 28px;
+        width: 644px;
+    }
+
+    &__nav-list a {
+        color: $blue;
+        font-weight: 700;
+        display: block;
+        padding: 40px 0;
+    }
+
+    &__btn {
+        width: 189px;
+        color: $white;
+        background-color: $blue;
+
+        @include mq($xl) {
+            width: 96px;
+        }
+
+        @include mq($md) {
+            width: 64px;
+        }
+
+        a {
+            color: $white;
+            align-items: center;
+            display: inline-flex;
+            font-size: 1rem;
+            gap: 0.5rem;
+            justify-content: center;
+            max-width: 100%;
+            padding-block: 0.375rem;
+            text-align: center;
+            transition: all 0.3s;
+            width: 189px;
+            padding: 32px;
+
+            @include mq($xl) {
+                position: relative;
+                display: block;
+                padding-block: 0.375rem;
+                width: 96px;
+                height: 96px;
+                padding: 58px 10px 10px;
+                font-weight: 400;
+            }
+
+            @include mq($md) {
+                font-size: 0.625rem;
+                width: 64px;
+                height: 64px;
+                padding: 41px 10px 10px;
+            }
+
+            &::before {
+                background: url(../images/mail.svg) no-repeat center center / contain;
+                content: "";
+                display: block;
+                height: 2rem;
+                width: 2rem;
+
+                @include mq($xl) {
+                    position: absolute;
+                    top: 20px;
+                    left: 30px;
+                }
+
+                @include mq($md) {
+                    position: absolute;
+                    top: 9px;
+                    left: 20px;
+                    width: 24px;
+                }
+            }
+
+            &:focus-visible {
+                border: 2px solid $white;
+                transform: scale(1.05);
+                /* ボタンを少し大きくして目立たせる */
+                outline: 0;
+            }
+        }
+
+        img {
+            width: 32px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.buttons {
+    @include mq($lg) {
+        display: flex;
+    }
+}
+
+
+/*----------------ハンバーガーメニュー-------------*/
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.openbtn {
+    display: none;
+
+    @include mq($lg) {
+        display: block;
+        position: relative;
+        /*ボタン内側の基点となるためrelativeを指定*/
+        background: #333;
+        cursor: pointer;
+        width: 96px;
+        height: 96px;
+    }
+
+    @include mq($md) {
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+
+    &:focus-visible {
+        @include mq($lg) {
+            border: 2px solid $white;
+            transform: scale(1.05);
+            /* ボタンを少し大きくして目立たせる */
+        }
+    }
+
+    span:nth-of-type(1) {
+        @include mq($lg) {
+            top: 20px;
+        }
+
+        @include mq($md) {
+            top: 13px;
+        }
+    }
+
+    span:nth-of-type(2) {
+        @include mq($lg) {
+            top: 33px;
+        }
+
+        @include mq($md) {
+            top: 22px;
+        }
+    }
+
+    span:nth-of-type(3) {
+        @include mq($lg) {
+            top: 45px;
+        }
+
+        @include mq($md) {
+            top: 31px;
+        }
+    }
+
+    /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更　※今回は文字の変更なし*/
+    &.active span:nth-of-type(1) {
+        @include mq($lg) {
+            top: 31px;
+            left: 25px;
+            transform: translateY(6px) rotate(-45deg);
+            width: 50%;
+        }
+
+        @include mq($md) {
+            top: 19px;
+            left: 15px;
+            transform: translateY(6px) rotate(-45deg);
+            width: 50%;
+        }
+    }
+
+    &.active span:nth-of-type(2) {
+        @include mq($lg) {
+            opacity: 0;
+        }
+    }
+
+    &.active span:nth-of-type(3) {
+        @include mq($lg) {
+            top: 44px;
+            left: 25px;
+            transform: translateY(-6px) rotate(45deg);
+            width: 50%;
+        }
+
+        @include mq($md) {
+            top: 31px;
+            left: 16px;
+            transform: translateY(-6px) rotate(45deg);
+            width: 50%;
+        }
+    }
+}
+
+/*ボタン内側*/
+.menu-line {
+    display: none;
+
+    @include mq($lg) {
+        display: inline-block;
+        transition: all .4s;
+        /*アニメーションの設定*/
+        position: absolute;
+        left: 22px;
+        height: 1px;
+        border-radius: 5px;
+        background: $white;
+        color: $white;
+        width: 50px;
+
+        @include mq($md) {
+            left: 16px;
+            width: 32px;
+        }
+    }
+
+    /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更　※今回は文字の変更なし*/
+    &.active {
+        @include mq($lg) {
+            display: inline-block;
+            transition: all .4s;
+            /*アニメーションの設定*/
+            position: absolute;
+            left: 22px;
+            height: 1px;
+            border-radius: 5px;
+            color: $white;
+            width: 50px;
+        }
+    }
+
+}
+
+.menu-text {
+    @include mq($lg) {
+        transform: none;
+        position: absolute;
+        color: $white;
+        top: 56px;
+        left: 16px;
+        pointer-events: none;
+        /* クリックイベントを無視 */
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    @include mq($md) {
+        top: 38px;
+        left: 12px;
+        font-size: 0.625rem;
+    }
+}
+
+/*--------------ナビゲーション-------------------*/
+
+@include mq($lg) {
+    .header__nav {
+        pointer-events: none;
+        /*隠れている時は触れないようにしておく*/
+        overflow: hidden;
+        /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+        position: fixed;
+        z-index: -1;
+        opacity: 0;
+        /*はじめは透過0*/
+        /*ナビの位置と形状*/
+        top: 55px;
+        width: 100%;
+        height: 100vh;
+        /*ナビの高さ*/
+        background: #999;
+        /*動き*/
+        transition: all 0.3s;
+        background: $blue;
+
+        /*アクティブクラスがついたら透過なしにして最前面へ*/
+        &.panelactive {
+            pointer-events: auto;
+            /*表示された時に解除する*/
+            position: absolute;
+            top: 96px;
+            opacity: 1;
+            z-index: 999;
+
+            @include mq($md) {
+                top: 64px
+            }
+        }
+
+        /*ナビゲーションの縦スクロール*/
+        &-lists {
+            /*ナビの数が増えた場合縦スクロール*/
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            /*表示する高さ*/
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+
+        /*ナビゲーション*/
+        &-lists {
+            display: block;
+            /*ナビゲーション天地中央揃え*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+
+            &.panelactive {
+                display: block;
+            }
+        }
+
+        /*リストのレイアウト設定*/
+        &-list {
+            text-align: left;
+            border-bottom: 1px solid $white;
+
+            & a {
+                display: block;
+                color: $white;
+                padding: 24px 16px;
+
+                &:focus-visible {
+                    border: 2px solid $white;
+                    transform: scale(1.025);
+                    /* ボタンを少し大きくして目立たせる */
+                }
+            }
+        }
+    }
+}
+
+.mail-icon {
+    @include mq($lg) {
+        display: block;
+    }
+
+    @include mq($md) {
+        display: flex;
+    }
+
+
+    & a {
+        @include mq($lg) {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px 12px;
+        }
+
+        &::before {
+            @include mq($lg) {
+                background: url(../images/mail.svg) no-repeat right center / contain;
+                content: "";
+                height: 1.5rem;
+                width: 1.5rem;
+                margin-right: 16px;
+                display: inline-block;
+            }
+        }
+    }
+}

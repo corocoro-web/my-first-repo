@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as *;
+
+@mixin mq($bp) {
+    @media (max-width: ($bp)) {
+        @content;
+    }
+}
+
+@mixin formBox {
+    background-color: #F5F8FA;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 14px 6px;
+    margin-bottom: 10px;
+}
+
+@mixin button($color, $bgColor, $bdRadius, $bdColor) {
+    color: $color;
+    background-color: $bgColor;
+    border-radius: $bdRadius;
+    width: 320px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    border: 3px solid $bdColor;
+    display: block;
+    margin: 0 auto;
+}
+
+@mixin swiper-button {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@mixin accordion-style {
+    list-style: none;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 10px;
+    text-align: left;
+}
